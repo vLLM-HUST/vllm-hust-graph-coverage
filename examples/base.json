@@ -1,0 +1,14 @@
+{
+  "model": "/path/to/Qwen3-0.6B",
+  "dtype": "float16",
+  "tensor_parallel_size": 1,
+  "distributed_executor_backend": "uni",
+  "max_model_len": 256,
+  "max_num_seqs": 4,
+  "max_num_batched_tokens": 32,
+  "enable_chunked_prefill": true,
+  "enable_prefix_caching": false,
+  "enforce_eager": false,
+  "async_scheduling": true,
+  "seed": 17
+}

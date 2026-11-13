@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vllm-hust-graph-coverage"
+version = "0.1.0"
+description = "TraceLoom-guided Graph Capture Coverage configuration MOD using stock vLLM controls"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+
+[project.optional-dependencies]
+test = ["pytest>=8", "build"]
+
+[project.scripts]
+traceloom-graph-coverage = "traceloom_graph_coverage:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

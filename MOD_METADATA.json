@@ -1,0 +1,48 @@
+{
+  "schema_version": "vllm-hust-mod-metadata-v1",
+  "mod_id": "org.vllm-hust.graph-coverage",
+  "repository": "vllm-hust-graph-coverage",
+  "display_name": "TraceLoom Graph Capture Coverage",
+  "canonical_repository": "https://github.com/vLLM-HUST/vllm-hust-graph-coverage",
+  "responsibility": {
+    "organization": "vLLM-HUST",
+    "maintainers": [
+      {
+        "name": "Shuhao Zhang",
+        "github": "ShuhaoZhangTony"
+      }
+    ],
+    "advisor_status": "unknown",
+    "advisors": []
+  },
+  "lifecycle": {
+    "status": "experimental",
+    "default_enabled": false,
+    "activation_contract": "traceloom_graph_coverage.configure(existing_kwargs, enabled=True), before LLM construction",
+    "rollback_contract": "Restart the engine with the original kwargs; uninstall the distribution if desired"
+  },
+  "scope": {
+    "mechanism": "configuration_recipe: Capture shapes chosen from realized query-token batches.",
+    "supported_workloads": [
+      "Qwen3-0.6B FP16, TP1, Ascend 910B2"
+    ],
+    "out_of_scope": [
+      "novel scheduler or kernel implementation",
+      "automatic tuning",
+      "general production performance guarantee"
+    ]
+  },
+  "evidence": {
+    "qualification": "historical device-qualified configuration; current package CPU contract tests",
+    "latest_result": "evidence/result.json",
+    "index": "docs/EVIDENCE.md",
+    "performance_claims": [
+      {
+        "label": "historical workload-qualified device measurement",
+        "result": "evidence/result.json",
+        "protocol": "evidence/protocol.json",
+        "scope": "docs/EVIDENCE.md"
+      }
+    ]
+  }
+}
